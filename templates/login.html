@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+
+
+{% block body %}
+
+	<h1>Login</h1>
+	<h2>Informe usuário e senha</h2>
+	{% if error %}
+    	<p class=error><strong>Error:</strong> {{ error }}
+	{% endif %}
+	<div class="row">
+		<div class="span12">
+			<form action="." method="post" name="loginform">
+
+				{{form.hidden_tag() }}
+
+				{{form.csrf_token }}
+
+				{{ form.user.label }} {{ form.user}}<br>
+				{%for error in form.user.errors%}
+					<p>{{error}}</p>
+				{%endfor%}
+				
+
+				{{ form.password.label }} {{ form.password}}<br>
+				{%for error in form.password.errors%}
+					<p>{{error}}</p>
+				{%endfor%}
+
+				<div>
+					<button name="action_save" type="submit" class="btn-primary">Entrar</button>
+				</div>
+
+			</form>
+			
+		</div>
+	</div>
+{%endblock%}
