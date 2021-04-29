@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Aula templates -  {% block title %}{% endblock %}</title>
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/jinja.css')}}" type="text/css">
+	<script type="text/javascript" src="{{ url_for('static', filename='js/jinja2.js')}}"></script>
+</head>
+<body>
+	<div class="container">
+		<div class="header">
+			HEADER
+		</div>
+		
+		<div class="container">
+			{% block main_content %}{% endblock %}
+			
+		</div>
+	</div>
+</body>
+</html>
